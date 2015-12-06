@@ -1,0 +1,32 @@
+name = Ameda
+description = Ameda theme
+screenshot = screenshot.png
+version = 1.0
+core = 7.x
+engine = phptemplate
+
+stylesheets[all][] = css/jquery-ui-timepicker-addon.css
+stylesheets[all][] = css/jquery.timepicker.css
+stylesheets[all][] = css/owl.carousel.css
+stylesheets[all][] = css/jquery-ui.scss
+stylesheets[all][] = css/jquery.timepicker.scss
+stylesheets[all][] = css/jquery-ui-timepicker-addon.scss
+stylesheets[all][] = css/chosen.scss
+stylesheets[all][] = css/style.sass
+
+scripts[] = js/chosen.jquery.min.js
+scripts[] = js/jquery.autocolumnlist.js
+scripts[] = js/jquery-ui.min.js
+scripts[] = js/jquery-ui-timepicker-addon.js
+scripts[] = js/jquery.timepicker.min.js
+scripts[] = js/jquery.mousewheel.min.js
+scripts[] = js/jquery.carousel-1.1.js
+scripts[] = js/owl.carousel.min.js
+scripts[] = js/custom.js
+
+
+
+
+
+
+

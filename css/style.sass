@@ -1,0 +1,4059 @@
+@import compass/css3
+@import _globals.sass
+@import _vendor-prefix.sass
+
+*
+  margin: 0
+  padding: 0
+
+html
+  height: 100%
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary
+  display: block
+
+body
+  font-size: 15px
+  line-height: 30px
+  font-family: $opensansFont, Tahoma, Arial, sans-serif
+  height: 100%
+  color: $grayText
+  overflow-x: hidden
+
+#wrapper
+  width: 100%
+  min-width: 320px
+  min-height: 100% 
+  height: auto !important
+  height: 100%
+  overflow: hidden
+  @media screen and (max-width: 1180px)
+    +transition-property(all)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+
+a 
+  outline: none
+  text-decoration: underline
+  color: $redColor
+
+  &:hover
+    text-decoration: none
+      
+p 
+  margin: 0
+
+img 
+  border: none
+  max-width: 100%
+  height: auto
+
+input,
+textarea,
+button
+  font-family: $opensansFont, Tahoma, Arial, sans-serif
+  font-size: 14px
+  color: $grayText
+  vertical-align: middle
+  outline: none
+  +box-sizing(border-box)
+
+::-webkit-input-placeholder 
+  color: $grayText
+  opacity: 1
+
+:-moz-placeholder
+  color: $grayText
+  opacity: 1
+
+input::-moz-placeholder
+  color: $grayText
+  opacity: 1
+
+input:focus::-moz-placeholder 
+  opacity: 0
+
+:-ms-input-placeholder 
+  color: $grayText
+
+input:focus::-webkit-input-placeholder
+  opacity: 0
+
+textarea::-webkit-input-placeholder 
+  color: $grayText
+  opacity: 1
+
+textarea:-moz-placeholder 
+  color: $grayText
+  opacity: 1
+
+textarea::-moz-placeholder
+  color: $grayText
+  opacity: 1
+
+textarea:focus::-moz-placeholder 
+  opacity: 0
+
+textarea:-ms-input-placeholder 
+  color: $grayText
+
+textarea:focus::-webkit-input-placeholder
+  opacity: 0
+
+.content-center
+  max-width: 1180px
+  min-width: 300px
+  margin: 0 auto
+  height: 100%
+  position: relative
+  +box-sizing(border-box)
+  // border-left: 1px solid red
+  // border-right: 1px solid red 
+
+  @media screen and (max-width: 1180px)
+    margin: 0 10px
+
+// .logged-in .content-center
+//   border-left: 1px solid red
+//   border-right: 1px solid red  
+
+.float-left
+  float: left
+
+.float-right
+  float: right
+
+.clear
+  clear: both 
+
+.front .media-vimeo-video,
+.front .media-youtube-video,
+.front .fancybox-inner 
+
+  @media screen and (max-width: 1180px)
+    position: relative
+    padding-bottom: 56.25% 
+    height: 0 !important
+    overflow:hidden 
+
+.front .media-vimeo-video iframe, 
+.front .media-vimeo-video object, 
+.front .media-vimeo-video embed,
+.front .media-youtube-video iframe, 
+.front .media-youtube-video object, 
+.front .media-youtube-video embed,
+.front .fancybox-inner iframe
+
+  @media screen and (max-width: 1180px)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+#header 
+  height: 187px
+  position: relative
+  z-index: 5
+  @media screen and (max-width: 1180px)
+    height: 173px
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 5px
+    background: url(../img/header-border.jpg) no-repeat center
+    +background-size(100% 5px)
+
+.header-content
+  position: relative
+  height: 156px
+  +box-sizing(border-box)
+  padding-top: 5px
+  @media screen and (max-width: 1180px)
+    height: 170px
+  &_content
+    +display-flex
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    +align-items(flex-end)
+    height: 120px
+    line-height: 1.5
+    @media screen and (max-width: 1180px)
+      margin-top: 14px
+      -webkit-box-align: center
+      -ms-flex-align: center
+      -webkit-align-items: center
+      -moz-align-items: center
+      align-items: center
+    @media screen and (max-width: 767px)
+      margin: 15px 10px 0
+  &_logo
+    display: block
+    width: 146px
+    position: relative
+    top: 22px
+    @media screen and (max-width: 1180px)
+      +order(1)
+      width: 130px
+      top: 0
+      margin: 0 20px 0 50px
+    @media screen and (max-width: 767px)
+      width: 103px
+      margin: 0
+    img
+      display: block
+  &_adr
+    font-weight: 300
+    @media screen and (max-width: 1180px)
+      display: none
+  &_tel
+    text-align: center
+    @media screen and (max-width: 1180px)
+      +order(0)
+    @media screen and (max-width: 767px)
+      display: none
+    &-num
+      height: 22px
+      line-height: 20px
+      font-size: 31px
+      color: $redColor
+      font-weight: 800
+      margin-bottom: 16px
+
+      p
+        display: inline-block
+        vertical-align: top
+        position: relative
+        padding-left: 45px
+
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          left: 0
+          top: 0
+          width: 31px
+          height: 22px
+          @extend %icon-sprite
+          background-position: 0 0
+
+    .menu
+      text-align: center
+      position: relative
+      z-index: 11
+       
+      li
+        margin: 0
+        padding: 0
+        list-style: none
+
+        a
+          @extend %green-but
+          width: 230px
+          +transition-property(background)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+          &:hover,
+          &.current
+            background: $yellowColor
+  &_time
+    font-weight: 300
+    @media screen and (max-width: 1180px)
+      +order(3)
+    @media screen and (max-width: 767px)
+      display: none
+  &_buttons
+    width: 280px
+    position: relative
+    z-index: 2
+    @media screen and (max-width: 1180px)
+      display: none
+    .menu
+      text-align: center
+      position: relative
+      z-index: 2
+      li
+        margin: 0
+        padding: 0
+        list-style: none
+        &.first
+          margin-bottom: 19px
+          a
+            @extend %green-border-but
+            +transition-property(background, color)
+            +transition-duration(0.2s)
+            +transition-timing-function(ease)
+            &:hover,
+            &.current
+              color: #fff
+              background: $blueColor
+        &.last
+          a
+            @extend %red-but 
+            +transition-property(background)
+            +transition-duration(0.2s)
+            +transition-timing-function(ease)
+            &:hover,
+            &.current
+              background: $blueColor
+    &-call-popup
+      position: absolute
+      width: 360px
+      top: 70px
+      left: -40px
+      +box-sizing(border-box)
+      background: #fff
+      z-index: 1
+      padding: 40px
+      +border-bottom-left-radius(10px)
+      +border-bottom-right-radius(10px)
+      +box-shadow(rgba(#000, 0.1) 0 8px 8px)
+      display: none
+      .messages
+        display: none
+      .form-item
+        margin: 0 0 30px
+        .form-text
+          @extend %input-text
+          &.error
+            border: 1px solid $redColor
+      .form-actions
+        margin: 0
+        text-align: center
+        .form-submit
+          @extend %blue-but
+          width: 100%
+          background: $yellowColor
+        div
+          display: none
+  &_order
+    position: absolute
+    background: #fff
+    +box-sizing(border-box)
+    top: 111px
+    left: 50%
+    width: 1282px
+    margin-left: -1282px/2
+    padding: 70px 50px 50px
+    +border-radius(10px)
+    +box-shadow(rgba(#000, 0.1) 0 8px 8px)
+    border-top: 1px solid $yellowColor
+    display: none
+    z-index: 10
+  &_button-menu
+    display: none
+    +order(4)
+    position: relative
+    cursor: pointer
+    width: 82px
+    height: 82px
+    background: $blueColor
+    +border-radius(41px)
+    +flex(0 0 auto)
+    border: none
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 50%
+      top: 50%
+      @extend %icon-sprite
+      width: 51px
+      height: 24px
+      background-position: -38px -398px
+      margin-left: -51px/2
+      margin-top: -24px/2
+    @media screen and (max-width: 1180px)
+     display: block
+    @media screen and (max-width: 767px)
+     width: 47px
+     height: 48px
+     &:after
+       width: 25px
+       height: 24px
+       background-position: -149px -155px
+       margin-left: -25px/2
+       margin-top: -24px/2
+  &_tel-sm
+    display: none
+    +flex(0 0 auto)
+    a
+      font-size: 0
+      width: 47px
+      height: 47px
+      display: block
+      background: $redColor
+      +border-radius(24px)
+      position: relative
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        left: 50%
+        top: 50%
+        width: 28px
+        height: 25px
+        @extend %icon-sprite
+        background-position: -111px -155px
+        margin-left: -28px/2
+        margin-top: -25px/2
+    @media screen and (max-width: 767px)
+      display: block   
+
+.header-menu
+  height: 31px
+  background: $blueColor
+  @media screen and (max-width: 1180px)
+    height: 3px
+
+  &_content
+    +display-flex
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    @media screen and (max-width: 1180px)
+      -webkit-box-pack: center
+      -moz-box-pack: center
+      -webkit-flex-pack: center
+      -ms-flex-pack: center
+      -moz-justify-content: center
+      -webkit-justify-content: center
+      justify-content: center
+  
+  &_main-menu
+    margin-left: -7px
+    @media screen and (max-width: 1180px)
+      display: none
+
+    > .menu
+
+      > li
+        margin: 0 10px 0 0
+        padding: 0
+        list-style: none
+        display: inline-block
+        vertical-align: top
+        position: relative
+
+        > .menu
+          position: absolute
+          left: 0
+          top: 31px
+          width: 418px
+          background: rgba(#5495a8, 0.95)
+          padding: 25px 0
+          +border-bottom-left-radius(10px)
+          +border-bottom-right-radius(10px)
+          display: none
+
+          > li
+            margin: 0
+            padding: 0
+            list-style: none
+
+            &.last
+
+              a:before
+                display: none
+            
+            > a
+              display: block
+              text-decoration: none
+              color: #fff
+              position: relative
+              height: 41px
+              line-height: 38px
+              padding-left: 55px
+              +transition-property(background)
+              +transition-duration(0.2s)
+              +transition-timing-function(ease)
+
+              span
+                position: relative
+                z-index: 2
+
+              &:hover:after
+                opacity: 1
+                visibility: visible
+
+              &:before
+                content: ''
+                display: block
+                position: absolute
+                bottom: 0
+                left: 55px
+                width: 300px
+                height: 1px
+                background: rgba(#fff, 0.5)
+
+              &:after
+                content: ''
+                display: block
+                position: absolute
+                left: 0
+                top: -1px
+                height: 42px
+                width: 100%
+                background: $blueColor
+                opacity: 0
+                visibility: hidden
+                +transition-property(opacity, visibility)
+                +transition-duration(0.2s)
+                +transition-timing-function(ease)
+
+        &:hover
+
+          > a
+            background: $greenColor
+        
+        > a
+          display: block
+          height: 31px
+          font-size: 12px
+          text-transform: uppercase
+          color: #fff
+          font-weight: 800
+          text-decoration: none
+          padding: 0 7px
+          line-height: 31px
+          +transition-property(background)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+  
+  &_right-but
+    width: 280px
+    margin-top: -5px
+    @media screen and (max-width: 1180px)
+      margin-top: -19px
+    .menu
+      text-align: center
+      
+      li
+        margin: 0
+        padding: 0
+        list-style: none
+
+        a
+          display: block
+          text-decoration: none
+          height: 41px
+          line-height: 43px
+          color: #fff
+          background: $yellowColor
+          font-family: $neuchaFont
+          font-size: 21px
+          text-transform: uppercase
+          +border-bottom-left-radius(16px)
+          +border-top-right-radius(16px)
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#content
+  padding: 0 0 253px
+  @media screen and (max-width: 1180px)
+    padding: 0 0 121px
+
+.front-top-content
+  height: 751px
+  background: url(../img/front-top-bg.jpg) no-repeat center
+  +background-size(cover)
+  +box-sizing(border-box)
+  padding-top: 45px
+  @media screen and (max-width: 1180px)
+    background-image: url(../img/front-top-bg-med.jpg)
+    height: 765px
+    padding-top: 55px
+  @media screen and (max-width: 767px)
+    background-image: url(../img/front-top-bg-sm.jpg)
+    height: 616px
+    padding-top: 49px
+  &_content
+    +display-flex
+    -webkit-justify-content: flex-end
+    -ms-flex-pack: end
+    justify-content: flex-end
+    @media screen and (max-width: 1180px)
+      display: none
+  &_med
+    display: none
+    .sections-menu > .menu
+      @extend %display-flex
+      @extend %justify-content-space-between
+      @extend %flex-direction-row-reverse 
+      @media screen and (max-width: 767px)
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        -webkit-box-align: center
+        -ms-flex-align: center
+        -webkit-align-items: center
+        -moz-align-items: center
+        align-items: center
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-box-direction: reverse
+        -moz-box-direction: reverse
+        -webkit-flex-direction: column-reverse
+        -moz-flex-direction: column-reverse
+        -ms-flex-direction: column-reverse
+        flex-direction: column-reverse
+        .last
+          margin-bottom: 12px
+        li
+          margin: 0 0 11px
+          &.first a
+            &:before,
+            &:after
+              width: 28px
+            &:before
+              background-position: -207px -183px
+            &:after
+              background-position: -235px -183px  
+          &.last a
+            &:before,
+            &:after
+              width: 26px !important
+              width: 27px !important
+            &:before
+              background-position: -207px -152px
+            &:after
+              background-position: -233px -152px
+      li
+        margin: 0
+        a
+          width: 350px
+          padding-left: 75px
+          white-space: nowrap
+          &:before,
+          &:after
+            left: 30px
+          @media screen and (max-width: 767px)
+            width: 300px
+            font-size: 17px
+            height: 69px
+            line-height: 67px
+            &:before,
+            &:after
+              width: 27px !important
+              margin-top: -27px/2 !important
+      > li > .menu
+        display: none
+    @media screen and (max-width: 1180px)
+      display: block
+
+.sections-menu
+  
+  > .menu
+    
+    > li
+      margin: 0 0 19px
+      padding: 0
+      list-style: none
+      position: relative
+
+      &:hover
+
+        > .menu
+          opacity: 1
+          visibility: visible
+      
+      > .menu
+        position: absolute
+        right: 420px
+        top: 0
+        width: 418px
+        background: rgba(#5495a8, 0.95)
+        padding: 25px 0
+        +border-radius(10px)
+        +transition-property(opacity, visibility)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+        z-index: 2
+        opacity: 0
+        visibility: hidden
+
+        > li
+          margin: 0
+          padding: 0
+          list-style: none
+
+          &.last
+
+            a:before
+              display: none
+          
+          > a
+            display: block
+            text-decoration: none
+            color: #fff
+            position: relative
+            height: 41px
+            line-height: 38px
+            padding-left: 55px
+            +transition-property(background)
+            +transition-duration(0.2s)
+            +transition-timing-function(ease)
+
+            span
+              position: relative
+              z-index: 2
+
+            &:hover:after,
+            &:active:after
+              opacity: 1
+              visibility: visible
+
+            &:before
+              content: ''
+              display: block
+              position: absolute
+              bottom: 0
+              left: 55px
+              width: 300px
+              height: 1px
+              background: rgba(#fff, 0.5)
+
+            &:after
+              content: ''
+              display: block
+              position: absolute
+              left: 0
+              top: -1px
+              height: 42px
+              width: 100%
+              background: $blueColor
+              opacity: 0
+              visibility: hidden
+              +transition-property(opacity, visibility)
+              +transition-duration(0.2s)
+              +transition-timing-function(ease)
+      
+        
+
+      &.first
+
+        > a
+
+          &:before,
+          &:after
+            height: 32px
+            margin-top: -32px/2
+
+          &:before
+            background-position: 0 -25px
+          
+          &:after
+            background-position: -31px -25px
+
+      &.last
+
+        > a
+
+          &:before,
+          &:after
+            height: 31px
+            margin-top: -31px/2
+
+          &:before
+            background-position: 0 -61px
+          
+          &:after
+            background-position: -31px -61px
+
+      &:hover,
+      &:active
+
+        > a
+          color: #fff
+          background: $blueColor
+
+          &:before
+            opacity: 0
+
+          &:after
+            opacity: 1
+
+      > a
+        display: block
+        position: relative
+        +box-sizing(border-box)
+        width: 440px
+        height: 81px
+        line-height: 78px
+        text-decoration: none
+        background: #fff
+        border: 1px solid $blueColor
+        +border-radius(41px)
+        color: $blueColor
+        font-size: 21px
+        font-weight: 800
+        text-transform: uppercase
+        padding-left: 120px
+        +transition-property(background, color)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+
+        &:before,
+        &:after
+          content: ''
+          display: block
+          position: absolute
+          width: 31px
+          left: 69px
+          top: 50%
+          @extend %icon-sprite
+          +transition-property(opacity)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+
+        &:after
+          opacity: 0
+        
+.front-actions
+  height: 291px
+  background: $blueColor
+  margin-bottom: 60px
+  +box-sizing(border-box)
+  @media screen and (max-width: 767px)
+    height: 480px
+    padding-top: 40px
+  &_list
+    position: relative 
+    width: 1180px
+    top: -31px
+    height: auto
+    border: none
+    overflow: hidden
+    padding: 20px
+    margin: -20px -20px 60px
+    @media screen and (max-width: 1180px)
+      display: none
+
+    .slides
+      margin: 0
+      padding: 0
+      border: none
+      list-style: none
+      position: relative
+
+      .slideItem 
+        position: absolute
+        margin: 0
+        border: none
+        +border-radius(16px)
+        +box-shadow(rgba(#535353, 0.1) 0 12px 12px)
+        padding-left: 0
+        overflow: hidden
+
+        .advice-list-item_title,
+        .advice-list-item_desc,
+        .advice-list-item_discount
+          left: 300px
+          width: 260px
+    
+        img
+          margin: 0
+          padding: 0
+          border: none
+          width: 100%
+          height: 100% 
+          +border-radius(16px)
+    
+    .nextButton,
+    .prevButton
+      position: absolute
+      cursor: pointer
+      width: 23px
+      height: 39px
+      top: 50%
+      margin-top: -39px/2
+      @extend %icon-sprite
+      opacity: 0.7
+      +transition-property(opacity)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+
+      &:hover
+        opacity: 1
+
+    .nextButton
+      right: 20px
+      background-position: -27px -95px
+    
+    .prevButton
+      left: 20px
+      background-position: 0 -95px
+  &_list-sm
+    display: none
+    text-align: center
+    position: relative
+    top: -11px
+    .owl-stage-outer
+      padding-bottom: 20px
+      margin-bottom: -20px
+    @media screen and (max-width: 767px)
+      top: 0
+      .owl-stage-outer
+        margin-bottom: 25px
+    .advice-list-item
+      display: inline-block
+      vertical-align: top
+      margin: 0
+      text-align: left
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100% 
+        z-index: 2
+        background: rgba(#000, 0.5)
+        opacity: 0
+      @media screen and (max-width: 767px)
+        width: 300px
+        overflow: hidden
+        padding: 60px 25px 0
+        color: #fff
+        &:before
+          opacity: 1
+        &_img
+          img
+            height: 313px
+            width: 579px
+            max-width: initial
+        &_name
+          z-index: 3
+        &_title
+          z-index: 3
+          color: #fff
+        &_desc,
+        &_discount
+          z-index: 3
+    @media screen and (max-width: 1180px)
+      display: block
+    .owl-controls .owl-nav div
+      position: absolute
+      cursor: pointer
+      width: 23px
+      height: 39px
+      top: 140px
+      @extend %icon-sprite
+      opacity: 0.7
+      +transition-property(opacity)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      font-size: 0
+      @media screen and (max-width: 767px)
+        position: relative
+        top: initial
+        display: inline-block
+        vertical-align: top
+        margin: 0 60px
+      &:hover,
+      &:active
+          opacity: 1
+
+      &.owl-prev
+        left: 0
+        background-position: 0 -95px
+
+      &.owl-next
+        right: 0
+        background-position: -27px -95px
+
+.fornt-middle-content
+  margin-bottom: 65px
+
+.static-text
+  
+  p:not(:last-child),
+  ul:not(:last-child)
+    margin-bottom: 25px
+
+  li
+    list-style: none
+    position: relative
+    padding-left: 18px
+
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 12px
+      background: $blueColor
+      width: 8px
+      height: 8px
+      +border-radius(4px)
+
+.front-page-content
+  margin-bottom: 50px  
+
+  &_video-but
+    margin-bottom: 30px
+
+    img
+      display: none
+
+    .content
+      text-align: center
+      
+      .fancybox-video
+        display: inline-block
+        vertical-align: top
+        @extend %yellow-but
+        width: 280px
+
+  &_text    
+
+    h3
+      color: $blueColor
+      font-size: 18px
+      font-weight: 800
+
+    strong
+      font-weight: 800
+
+.order-form
+  @media screen and (max-width: 1180px)
+    width: 580px
+    margin: 0 auto
+  @media screen and (max-width: 767px)
+    width: 280px  
+  .messages
+    display: none
+  &_title
+    @extend %block-title
+  fieldset
+    margin: 0
+    padding: 0
+    border: none
+  & &_user-fields
+    &-text
+      @media screen and (max-width: 1180px)
+        margin-bottom: 29px
+      @media screen and (max-width: 767px)
+        margin-bottom: 0
+    margin-bottom: 29px
+    > .fieldset-wrapper
+      +display-flex
+      @extend %justify-content-space-between
+      @media screen and (max-width: 1180px)
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+      fieldset
+        width: 580px
+        @media screen and (max-width: 767px)
+          width: 280px
+        .fieldset-wrapper
+          +display-flex
+          @extend %flex-wrap-wrap 
+          @extend %justify-content-space-between
+          @media screen and (max-width: 767px)
+            -webkit-box-orient: vertical
+            -moz-box-orient: vertical
+            -webkit-flex-direction: column
+            -moz-flex-direction: column
+            -ms-flex-direction: column
+            flex-direction: column
+          .form-item:not(:last-child):not(:nth-child(3))
+            margin-bottom: 29px
+    .form-item
+      margin: 0
+      width: 280px
+      @media screen and (max-width: 767px)
+        margin-bottom: 29px
+      .form-text:not(.order-form-date-field)
+        @extend %input-text
+        &.error
+          border: 1px solid $redColor
+  &-date
+    position: relative
+    label
+      line-height: 1.4
+      font-weight: normal
+      font-size: 14px
+      span
+        display: none
+    .order-form-date_desc
+      position: absolute
+      left: 0
+      top: 23px
+      line-height: 1
+      font-size: 14px
+      font-weight: 800
+      color: $blueColor
+    &-field
+      position: absolute
+      right: 0
+      top: 0
+      font-size: 0
+      width: 100px
+      height: 41px
+      border: none
+      background: $blueColor
+      +border-radius(21px)
+      +transition-property(background)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      &.active
+        background: $yellowColor
+    img
+      display: block
+      cursor: pointer
+      position: absolute
+      +box-sizing(border-box)
+      top: 0
+      right: 0
+      padding: 7px 20px 8px 24px
+  .webform-component-textarea
+    margin: 0 0 30px
+    .form-textarea
+      @extend %input-text
+      height: 121px
+      resize: none
+      padding: 10px 20px
+  .form-actions
+    text-align: center
+    margin: 0
+    div
+      display: none
+    .form-submit
+      @extend %blue-but
+      width: 280px
+      padding-top: 2px 
+
+.front-preim-content
+  +box-sizing(border-box)
+  position: relative
+  height: 440px
+  background: url(../img/front-preim-bg.jpg) no-repeat center
+  +background-size(cover)
+  margin-bottom: 50px
+  padding-top: 128px
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: -5px
+    width: 100%
+    height: 5px
+    background: url(../img/header-border.jpg) no-repeat center
+    +background-size(100% 5px)
+  
+  &_video
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    top: 0
+    width: 100%
+    height: 440px
+    overflow: hidden
+    background: url(../img/front-preim-bg.jpg) no-repeat center
+    background-size: cover    
+    @media screen and (max-width: 1180px)
+      display: none
+
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(#584113, 0.3)
+
+    &-file
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      top: 0
+      min-width: 100%
+      min-height: 100%
+
+.preim-list
+  text-align: center
+  
+  &-item
+    display: inline-block
+    vertical-align: top
+    width: 250px
+    position: relative
+    padding-top: 150px
+    color: #fff
+    font-size: 18px
+    font-family: $neuchaFont
+    line-height: 1.3
+
+    &.item-0
+
+      .preim-list-item-icon
+        background-position: 0 -192px
+    
+    &.item-1
+
+      .preim-list-item-icon
+        background-position: 0 -473px
+    
+    &.item-2
+
+      .preim-list-item-icon
+        background-position: 0 -615px
+
+    &.item-3
+
+      .preim-list-item-icon
+        background-position: 0 -754px
+
+    &-icon
+      display: block
+      position: absolute
+      top: 0
+      left: 50%
+      width: 131px
+      height: 131px
+      margin-left: -131px/2 
+      @extend %icon-sprite
+  
+  .owl-controls .owl-nav div
+    position: absolute
+    cursor: pointer
+    width: 23px
+    height: 39px
+    top: 40px
+    @extend %icon-sprite
+    opacity: 0.7
+    +transition-property(opacity)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+    font-size: 0
+
+    &:hover,
+    &:active
+        opacity: 1
+
+    &.owl-prev
+      left: 0
+      background-position: 0 -95px
+
+    &.owl-next
+      right: 0
+      background-position: -27px -95px
+
+.front-doctors
+  margin-bottom: 90px
+
+  &_title
+    @extend %block-title
+
+.doctors-list
+  text-align: center
+  font-size: 0
+
+  &-item
+    display: inline-block
+    vertical-align: top
+    font-size: 15px
+    width: 280px
+    text-align: center
+
+    &-img
+      margin-bottom: 25px
+
+      a
+        display: block
+        position: relative
+        height: 226px
+        width: 226px
+        margin: 0 auto
+        overflow: hidden
+        +border-radius(55px)
+        font-size: 14px
+        text-decoration: none
+        color: $blueColor
+        font-weight: 800
+
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          width: 100%
+          height: 100%
+          left: 0
+          top: 0
+          +border-radius(55px)
+          +box-shadow($blueColor 0 2px 0 inset)
+          z-index: 2
+
+        img
+          display: block
+          +border-radius(55px)
+      
+        &:hover
+
+          .doctors-list-item-img-full
+            opacity: 1
+
+            &-text
+              top: 98px
+
+      &-full
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        background: rgba($blueColor, 0.8)
+        +transition-property(opacity)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+        opacity: 0
+        +border-radius(55px)
+
+        &-text
+          display: block
+          position: absolute
+          top: 0
+          left: 50%
+          text-align: center
+          +box-sizing(border-box)
+          height: 31px
+          line-height: 25px
+          width: 180px
+          background: #fff
+          +border-radius(16px)
+          border: 2px solid $blueColor
+          margin-left: -180px/2
+          +transition-property(top)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+
+    &-title
+      line-height: 1.3
+      text-transform: uppercase
+      font-size: 12px
+      font-weight: 800
+      height: 33px
+      margin-bottom: 2px
+      overflow: hidden
+    
+    &-special
+      line-height: 1.1
+      height: 36px
+      overflow: hidden
+
+    &-work
+      +display-flex
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+
+      div
+        height: 41px
+        color: #fff
+        line-height: 43px
+        text-transform: uppercase
+        font-size: 12px
+        font-weight: 800
+
+      &-label
+        background: $blueColor
+        width: 117px
+        +border-left-radius(21px)
+      
+      &-count
+        background: $greenColor
+        width: 64px
+        +border-right-radius(21px)
+
+.front-doctors-slider
+
+  .owl-controls .owl-nav div
+    position: absolute
+    cursor: pointer
+    width: 23px
+    height: 39px
+    top: 90px
+    @extend %icon-sprite
+    opacity: 0.7
+    +transition-property(opacity)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+    font-size: 0
+
+    &:hover,
+    &:active
+        opacity: 1
+
+    &.owl-prev
+      left: 0
+      background-position: 0 -149px
+
+    &.owl-next
+      right: 0
+      background-position: -23px -149px
+
+.bottom-map
+  height: 554px
+  position: relative
+  @media screen and (max-width: 767px)
+    .content-center
+      display: none
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    height: 100%
+    width: 40%
+    top: 0
+    right: 0
+    background: rgba($greenColor, 0.9)
+    @media screen and (max-width: 767px)
+      display: none
+
+  &-locations
+    position: absolute
+    right: 30px
+    top: 40px
+    z-index: 2
+    width: 310px
+    @media screen and (max-width: 1180px)
+      right: 0
+      width: 280px
+
+    &-list
+      font-size: 14px
+      color: #fff
+      line-height: 1.8
+
+      &-item
+        position: relative
+        cursor: pointer
+        +box-sizing(border-box)
+        padding: 10px 10px 10px 50px
+
+        &:hover
+          text-decoration: underline
+
+        &_title
+          font-weight: 800
+          margin-bottom: 2px
+
+        &.item-1
+
+          &:before
+            background-position: 0 -329px
+
+        &.item-2
+
+          &:before
+            background-position: 0 -361px
+
+        &.item-3
+
+          &:before
+            background-position: 0 -393px
+
+        &.item-4
+
+          &:before
+            background-position: 0 -425px
+
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          width: 22px
+          height: 32px
+          @extend %icon-sprite
+          top: 10px
+          left: 12px
+
+  &_full-map
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+    &-content
+      opacity: 0
+      visibility: hidden
+      position: absolute
+      width: 100% 
+      height: 100%
+      left: 0
+      top: 0
+      +transition-property(opacity, visibility)
+      +transition-duration(1s)
+      +transition-timing-function(ease)
+      
+      &.active
+        opacity: 1
+        visibility: visible
+        
+.site-container
+  position: relative
+  padding-top: 45px
+  margin-bottom: 120px
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    width: 100%
+    height: 200px
+    top: 0
+    left: 0
+    +background(linear-gradient(to bottom, #f1f0ed, #fff))
+
+.sections-menu.page-section
+  margin-bottom: 50px
+
+  > .menu
+    +display-flex
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    -webkit-flex-direction: row-reverse
+    -ms-flex-direction: row-reverse
+    flex-direction: row-reverse
+    @media screen and (max-width: 1180px)
+      .menu
+        display: none
+    @media screen and (max-width: 767px)
+      -webkit-box-orient: vertical
+      -moz-box-orient: vertical
+      -webkit-flex-direction: column
+      -moz-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      -webkit-box-align: center
+      -ms-flex-align: center
+      -webkit-align-items: center
+      -moz-align-items: center
+      align-items: center
+      -webkit-box-orient: vertical
+      -moz-box-orient: vertical
+      -webkit-box-direction: reverse
+      -moz-box-direction: reverse
+      -webkit-flex-direction: column-reverse
+      -moz-flex-direction: column-reverse
+      -ms-flex-direction: column-reverse
+      flex-direction: column-reverse
+      li
+        margin: 0 0 11px
+        &.first a
+          &:before,
+          &:after
+            width: 28px
+          &:before
+            background-position: -207px -183px
+          &:after
+            background-position: -235px -183px  
+        &.last a
+          &:before,
+          &:after
+            width: 26px
+            width: 27px
+          &:before
+            background-position: -207px -152px
+          &:after
+            background-position: -233px -152px  
+    > .last
+      > .menu
+        right: initial
+        left: 420px
+    > li > a
+      @media screen and (max-width: 1180px)
+        width: 350px
+        padding-left: 80px
+        &:before,
+        &:after
+          left: 35px
+      @media screen and (max-width: 767px)
+        font-size: 17px
+        width: 300px
+        height: 69px
+        line-height: 65px
+        &:before,
+        &:after
+          width: 27px !important
+          margin-top: -27px/2
+
+.page-title
+  line-height: 1
+  text-align: center
+  font-size: 51px
+  font-weight: normal
+  color: $greenColor
+  font-family: $neuchaFont
+  margin-bottom: 25px
+  letter-spacing: 2px
+  @media screen and (max-width: 1180px)
+    font-size: 31px
+    letter-spacing: 0
+
+.page-programms,
+.page-advice,
+.node-type-section
+  
+  .page-title
+    color: $yellowColor
+
+.node-type-programm,
+.node-type-about,
+.node-type-contacts,
+.node-type-page,
+.page-price,
+.page-gallery,
+.page-vacancy,
+.node-type-service
+
+  .page-title
+    color: $blueColor
+
+.programms-list
+  &-item
+    margin-bottom: 70px
+    &_info
+      +box-sizing(border-box)
+      height: 233px
+      border-top: 1px solid $yellowColor
+      +display-flex
+      -webkit-justify-content: space-between
+      -ms-flex-pack: justify
+      justify-content: space-between
+      padding: 0 60px
+      +align-items(center)
+      +box-shadow(rgba(#535353, 0.07) 0 12px 12px)
+      margin-bottom: 40px
+      position: relative
+      &:before
+        content: ''
+        display: none
+        width: 100%
+        position: absolute
+        left: 0
+        top: 0
+        height: 232px
+        background: rgba(#000, 0.4)
+        z-index: 2
+        @media screen and (max-width: 767px)
+          display: block
+      @media screen and (max-width: 1180px)
+        -webkit-box-orient: horizontal
+        -moz-box-orient: horizontal
+        -webkit-flex-direction: row
+        -moz-flex-direction: row
+        -ms-flex-direction: row
+        flex-direction: row
+        -webkit-flex-wrap: wrap
+        -moz-flex-wrap: wrap
+        -ms-flex-wrap: wrap
+        flex-wrap: wrap
+        -webkit-box-pack: start
+        -moz-box-pack: start
+        -webkit-flex-pack: start
+        -ms-flex-pack: start
+        -moz-justify-content: flex-start
+        -webkit-justify-content: flex-start
+        justify-content: flex-start
+        padding: 0
+        height: 350px
+        overflow: hidden
+      &-title
+        width: 420px
+        color: $yellowColor
+        font-family: $neuchaFont
+        line-height: 1
+        @media screen and (max-width: 1180px)
+          position: relative
+          z-index: 2
+          +flexbox()
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+          margin-left: 68px
+          height: 229px
+          -webkit-box-pack: center
+          -moz-box-pack: center
+          -webkit-flex-pack: center
+          -ms-flex-pack: center
+          -moz-justify-content: center
+          -webkit-justify-content: center
+          justify-content: center
+        @media screen and (max-width: 767px)
+          color: #fff
+          margin-left: 18px
+          width: auto
+        &-label
+          font-size: 29px
+          margin-bottom: 15px
+        &-name
+          font-size: 75px
+          line-height: 0.8
+          @media screen and (max-width: 767px)
+            font-size: 41px
+      &-img
+        @media screen and (max-width: 1180px)
+          position: absolute
+          right: 0
+          top: 0
+        img
+          display: block
+          height: 232px
+      &-counts
+        width: 280px
+        text-align: center
+        @media screen and (max-width: 1180px)
+          +flex(1 1 100%)
+          height: 116px
+          +flexbox()
+          -webkit-box-pack: justify
+          -moz-box-pack: justify
+          -webkit-flex-pack: justify
+          -ms-flex-pack: justify
+          -moz-justify-content: space-between
+          -webkit-justify-content: space-between
+          justify-content: space-between
+          -webkit-box-align: center
+          -ms-flex-align: center
+          -webkit-align-items: center
+          -moz-align-items: center
+          align-items: center
+          background: $yellowColor
+          color: #fff
+          padding: 0 60px
+        @media screen and (max-width: 767px)
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+          -webkit-box-pack: center
+          -moz-box-pack: center
+          -webkit-flex-pack: center
+          -ms-flex-pack: center
+          -moz-justify-content: center
+          -webkit-justify-content: center
+          justify-content: center
+          padding: 0
+        &-text
+          font-size: 75px
+          font-family: $neuchaFont
+          line-height: 1
+          text-transform: uppercase
+          margin-bottom: 7px
+          @media screen and (max-width: 1180px)
+            margin: 0
+          @media screen and (max-width: 767px)
+            font-size: 35px
+            margin-bottom: 6px
+        &-but
+          a
+            @extend %yellow-but
+            +box-shadow(none)
+            @media screen and (max-width: 1180px)
+              width: 280px
+              background: #fff
+              color: $yellowColor
+    &_desc
+      margin: 0 55px
+      @media screen and (max-width: 767px)
+        display: none      
+        
+.front-page-programm 
+  margin-bottom: 45px
+
+  .programms-list-item
+    margin: 0
+
+.advice-top-desc
+  margin-bottom: 50px
+
+.advice-list
+  +display-flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  margin: 0 -20px
+  
+  &-item
+    width: 579px
+    height: 313px
+    margin: 0 10px 40px
+    position: relative
+    +border-radius(16px)
+    +box-shadow(rgba(#535353, 0.1) 0 12px 12px)
+    +box-sizing(border-box)
+    padding: 60px 20px 0 300px
+    
+    &_img
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      overflow: hidden
+      +border-radius(16px)
+
+      img
+        display: block
+    
+    &_name
+      position: absolute
+      right: 0
+      top: 0
+      height: 41px
+      line-height: 43px
+      color: #fff
+      background: $yellowColor
+      font-family: $neuchaFont
+      font-size: 21px
+      width: 288px
+      text-align: center
+      text-transform: uppercase
+      +border-bottom-left-radius(16px)
+      +border-top-right-radius(16px)
+    
+    &_title
+      position: relative
+      font-size: 27px
+      color: $yellowColor
+      font-family: $neuchaFont
+      height: 70px
+      margin-bottom: 10px
+      overflow: hidden
+      line-height: 1.3
+    
+    &_desc
+      position: relative
+      font-size: 14px
+      line-height: 1.5
+      height: 85px
+      overflow: hidden
+      margin-bottom: 20px
+
+      p:first-child
+        margin-bottom: 5px
+
+      strong
+        color: $yellowColor
+        font-weight: 800
+    
+    &_discount
+      position: relative
+      color: $yellowColor
+      font-size: 35px
+      text-transform: uppercase
+      font-weight: 800
+      line-height: 1
+        
+.view-filters
+  background: $greenColor
+  color: $blueColor
+  margin-bottom: 70px
+
+  .views-exposed-widgets
+    margin: 0
+    +display-flex
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+    +align-items(center)
+    height: 100px
+    padding: 0 30px
+    +box-sizing(border-box)
+    @media screen and (max-width: 1180px)
+      min-height: 140px
+      height: auto
+      display: block
+      padding: 20px 200px 20px 30px
+      position: relative
+    @media screen and (max-width: 767px)
+      padding: 40px 10px
+    &:after
+      display: none
+
+    .views-exposed-widget
+      float: none
+      padding: 0
+
+      .chosen-container-single .chosen-single
+        background: #fff
+        color: $blueColor
+
+        div
+          background-position: -13px -137px
+
+      .bef-checkboxes
+        +display-flex
+        @media screen and (max-width: 1180px)
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+
+        .form-item-edit-field-doc-section-value-1
+          margin-right: 30px
+          @media screen and (max-width: 1180px)
+            margin-right: 0
+            margin-bottom: 15px
+
+      .description
+        display: none
+
+      .form-type-select
+
+        input
+          display: none
+
+          &:checked + label:after
+            opacity: 1
+
+        label
+          display: block
+          font-weight: normal
+          font-size: 14px
+          cursor: pointer
+          padding-left: 35px
+          height: 25px
+          line-height: 27px
+          position: relative
+
+          &:before
+            content: ''
+            display: block
+            position: absolute
+            left: 0
+            top: 0
+            +box-sizing(border-box)
+            height: 25px
+            width: 25px
+            background: #fff
+            +box-shadow($blueColor 0 0 0 1px inset)
+            +border-radius(10px)
+
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            width: 13px
+            height: 13px
+            background: $yellowColor
+            left: 6px
+            top: 6px
+            +border-radius(7px)
+            opacity: 0
+            +transition-property(opacity)
+            +transition-duration(0.2s)
+            +transition-timing-function(ease)
+        
+
+    .views-widget-filter-field_doc_section_value
+      width: 320px
+      @media screen and (max-width: 1180px)
+        float: left
+        width: 190px
+        margin-top: 18px
+      @media screen and (max-width: 767px)
+        float: none
+        margin-bottom: 35px
+
+    .views-widget-filter-tid
+      +flex(1 0 280px)
+      margin-right: 30px
+      @media screen and (max-width: 1180px)
+        display: inline-block
+        vertical-align: top
+        width: 280px
+        margin-bottom: 20px
+      @media screen and (max-width: 767px)
+        display: block
+        margin-right: 0
+
+    .views-widget-filter-tid_1
+      +flex(1 0 280px)
+      @media screen and (max-width: 1180px)
+        display: inline-block
+        vertical-align: top
+        width: 280px
+      @media screen and (max-width: 767px)
+        display: block
+        margin-right: 0
+        margin-bottom: 30px
+
+    .views-submit-button
+      width: 200px
+      text-align: right
+      @media screen and (max-width: 1180px)
+        position: absolute
+        right: 30px
+        top: 50px
+      @media screen and (max-width: 767px)
+        position: relative
+        right: 0
+        top: 0
+        width: 100%
+        text-align: center
+
+      div
+        display: none
+      
+      .form-submit
+        margin: 0
+        border: none
+        cursor: pointer
+        background: none
+        font-size: 31px
+        color: $blueColor
+        font-family: $neuchaFont
+        border-bottom: 2px solid $blueColor
+        line-height: 0.9
+        width: 70px
+
+.doctors-list.full-list
+  margin: 0 -20px
+  
+  .doctors-list-item
+    margin: 0 10px 90px
+
+.open-programm-top
+  margin-bottom: 70px
+
+.page-video-content
+  position: relative
+  height: 650px
+  margin-bottom: 70px
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: -5px
+    width: 100%
+    height: 5px
+    background: url(../img/header-border.jpg) no-repeat center
+    +background-size(100% 5px)
+  
+  &_poster
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    text-align: center
+    +box-sizing(border-box)
+    padding-top: 110px
+
+    > img
+      display: none
+
+    &-desc
+      position: relative
+      color: #fff
+      font-size: 31px
+      font-family: $neuchaFont
+      line-height: 1.4
+      padding: 150px 0
+
+      p:first-child
+        font-size: 51px
+
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        top: 0
+        left: 50%
+        @extend %icon-sprite
+        width: 146px
+        height: 114px
+        margin-left: -146px/2
+        background-position: -72px 0
+    
+    &-but
+      display: block
+      position: absolute
+      bottom: 0
+      left: 50%
+      width: 122px
+      height: 122px
+      background: $blueColor
+      +border-radius(61px)
+      cursor: pointer
+      margin-left: -122px/2
+
+      &:after
+        content: ""
+        display: block
+        position: absolute
+        left: 50%
+        top: 50%
+        @extend %icon-sprite
+        width: 27px
+        height: 53px
+        background-position: 0 -903px
+        margin-left: -20px/2
+        margin-top: -53px/2
+  
+  &_video
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    display: none
+
+.programm-middle
+  margin-bottom: 70px
+
+  &_text
+    margin-bottom: 70px
+
+    h2
+      line-height: 1
+      text-align: center
+      font-size: 51px
+      color: $yellowColor
+      font-family: $neuchaFont
+      font-weight: normal
+      margin-bottom: 35px 
+  
+  .order-form
+    margin-bottom: 75px
+
+  .front-doctors
+    margin-bottom: 0
+
+.page-preim-content
+  +box-sizing(border-box)
+  min-height: 395px
+  background: url(../img/page-preim-bg.jpg) no-repeat center
+  +background-size(cover)
+  margin-bottom: 50px
+  padding-top: 40px
+
+  &_title
+    font-weight: normal
+    line-height: 1
+    text-align: center
+    font-size: 51px
+    color: $greenColor
+    font-family: $neuchaFont
+    margin-bottom: 35px
+
+  &_list
+    font-size: 0
+    text-align: center
+
+    .preim-list-item
+      color: $grayText
+      margin: 0 20px 60px
+    
+.open-programm-bottom
+  text-align: center
+
+.open-doctor-top
+  margin-bottom: 40px
+
+  &_content
+    +display-flex
+    -webkit-justify-content: space-between
+    -ms-flex-pack: justify
+    justify-content: space-between
+
+    &-doc
+      width: 226px
+      text-align: center
+      margin-right: 5%
+
+      .doctors-list-item-img
+        position: relative
+        height: 226px
+        width: 226px
+        overflow: hidden
+        +border-radius(55px)
+        font-size: 14px
+        text-decoration: none
+        color: $blueColor
+        font-weight: 800
+
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          width: 100%
+          height: 100%
+          left: 0
+          top: 0
+          +border-radius(55px)
+          +box-shadow($blueColor 0 2px 0 inset)
+          z-index: 2
+
+        img
+          display: block
+          +border-radius(55px)
+
+    &-info
+      
+      &-title
+        line-height: 0.8
+        font-weight: 300        font-size: 51px        color: $greenColor2
+        margin-bottom: 25px
+
+      &-special
+        line-height: 1
+        color: $greenColor2
+        font-weight: 800
+        margin-bottom: 20px
+
+      &-text
+        overflow: hidden
+        height: 210px
+        margin-bottom: 15px
+
+        &.open
+          height: auto
+          overflow: inherit
+          margin-bottom: 0
+
+          & + .open-doctor-top_content-info-full-but
+            display: none
+
+        h3
+          color: $blueColor
+          font-size: 15px
+
+      &-full-but
+        cursor: pointer
+        height: 41px
+        color: $blueColor
+        width: 182px
+        border: 1px solid $blueColor
+        +border-radius(21px)
+        background: none
+        font-size: 12px
+        text-transform: uppercase
+        font-weight: 800
+        
+.doc-serts-content
+  +box-sizing(border-box)
+  height: 370px
+  margin-bottom: 50px
+  background: #f2efe9
+  padding-top: 35px
+
+  &_title
+    @extend %block-title
+
+  &_list
+    //text-align: center
+    font-size: 0
+    +box-sizing(border-box)
+
+    @media screen and (max-width: 1180px)
+      padding: 0 40px
+      text-align: center
+
+    .fancybox
+      display: inline-block
+      vertical-align: top
+      position: relative
+      height: 226px
+      width: 226px
+      overflow: hidden
+      +border-radius(55px)
+      font-size: 14px
+      text-decoration: none
+      color: $blueColor
+      font-weight: 800
+
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        +border-radius(55px)
+        +box-shadow($blueColor 0 2px 0 inset)
+        z-index: 2
+
+      img
+        display: block
+        +border-radius(55px)
+        height: 226px
+        width: 226px
+    
+    .owl-controls .owl-nav div
+      position: absolute
+      cursor: pointer
+      width: 23px
+      height: 39px
+      top: 90px
+      @extend %icon-sprite
+      opacity: 0.7
+      +transition-property(opacity)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      font-size: 0
+
+      &:hover,
+      &:active
+          opacity: 1
+
+      &.owl-prev
+        left: 0
+        background-position: 0 -149px
+
+      &.owl-next
+        right: 0
+        background-position: -23px -149px    
+
+.page-reviews,
+.page-faq
+
+  .view-filters
+    background: #f2efe9
+    color: $yellowColor
+
+    .views-exposed-widgets
+      @media screen and (max-width: 1180px)
+        +flexbox()
+        padding: 30px
+        .views-submit-button
+          position: relative
+          right: 0
+          top: 0
+      @media screen and (max-width: 767px)
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        padding: 40px 10px
+
+    .views-widget-filter-field_rev_section_value,
+    .views-widget-filter-field_faq_section_value
+      width: 310px
+      @media screen and (max-width: 1180px)
+        +flex(0 0 290px)
+      @media screen and (max-width: 767px)
+        +flex(0 0 auto)
+        margin-bottom: 35px
+        width: auto
+      .bef-checkboxes
+        -webkit-box-orient: vertical
+        -webkit-box-direction: normal
+        -webkit-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+
+        .form-item-edit-field-rev-section-value-1,
+        .form-item-edit-field-faq-section-value-1
+          margin-bottom: 15px
+
+        label
+
+          &:before
+            +box-shadow($yellowColor 0 0 0 1px inset)
+
+    .views-widget-filter-views_hst_filter
+      +flex(1 0 595px)
+      @media screen and (max-width: 1180px)
+        +flex(1 0 280px)
+      @media screen and (max-width: 767px)
+        +flex(0 0 auto)
+        margin-bottom: 35px
+      .views-widget
+        position: relative
+
+      label
+        display: none
+
+      .views-hst-filter
+        +display-flex
+        -webkit-justify-content: space-between
+        -ms-flex-pack: justify
+        justify-content: space-between
+        position: relative
+        @media screen and (max-width: 1180px)
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+          .form-item-select-reviews-page-hst-filter-4,
+          .form-item-select-faq-page-hst-filter-4
+            margin-bottom: 19px !important
+
+        .form-type-select
+          margin: 0
+          padding: 0
+          width: 280px
+
+          &:not(.form-item-select-reviews-page-hst-filter-4) + .hidden-select,
+          &:not(.form-item-select-faq-page-hst-filter-4) + .hidden-select
+            display: none
+
+          .chosen-container-single .chosen-single
+            color: $yellowColor
+
+            div
+              background-position: -26px -137px
+        
+        .hidden-select
+          cursor: default
+          width: 280px
+          background: #fff
+          color: $yellowColor
+          opacity: 0.5
+          +box-sizing(border-box)
+          font-size: 14px
+
+          &:after
+            content: ''
+            display: block
+            background-position: -26px -137px
+
+    .views-submit-button .form-submit
+          color: $yellowColor
+          border-bottom-color: $yellowColor    
+
+.reviews-top-box,
+.faq-top-box
+  height: 95px
+  +display-flex
+  -webkit-justify-content: space-between
+  -ms-flex-pack: justify
+  justify-content: space-between
+  +align-items(center)
+  @media screen and (max-width: 767px)
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -webkit-flex-direction: column
+    -moz-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    height: auto
+    margin-bottom: 30px
+  &_title-def
+    @media screen and (max-width: 1180px)
+      display: none
+  &_title-med
+    display: none
+    @media screen and (max-width: 1180px)
+      display: inline
+  .page-title
+    text-align: left
+    color: $yellowColor
+    margin-bottom: 0
+    @media screen and (max-width: 767px)
+      font-size: 31px
+      margin-bottom: 30px
+      letter-spacing: 0
+  &_button
+    width: 280px
+    height: 31px
+    cursor: pointer
+    border: none
+    font-size: 14px
+    background: $yellowColor
+    +border-radius(16px)
+    color: #fff
+    font-weight: 800
+    padding-bottom: 2px
+
+.page-reviews
+  
+  .sections-menu.page-section
+    margin-bottom: 15px
+
+.reviews-list
+  list-style: none
+  +display-flex
+  @extend %justify-content-space-between
+  @extend %flex-wrap-wrap
+  @media screen and (max-width: 1180px)
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -webkit-flex-direction: column
+    -moz-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-box-align: center
+    -ms-flex-align: center
+    -webkit-align-items: center
+    -moz-align-items: center
+    align-items: center
+
+  &-item
+    width: 560px
+    +display-flex
+    margin-bottom: 65px
+    @media screen and (max-width: 767px)
+      width: 300px
+      -webkit-box-orient: vertical
+      -moz-box-orient: vertical
+      -webkit-flex-direction: column
+      -moz-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      -webkit-box-align: center
+      -ms-flex-align: center
+      -webkit-align-items: center
+      -moz-align-items: center
+      align-items: center
+
+    &.item-1
+
+      img
+        border: 1px solid $yellowColor
+
+      .reviews-list-item_text-title 
+        color: $yellowColor
+    
+    &.item-2
+
+      img
+        border: 1px solid $blueColor
+
+      .reviews-list-item_text-title 
+        color: $blueColor
+    
+    &.item-3
+
+      img
+        border: 1px solid $greenColor
+
+      .reviews-list-item_text-title 
+        color: $greenColor
+
+    &.item-4
+
+      img
+        border: 1px solid $redColor
+
+      .reviews-list-item_text-title 
+        color: $redColor
+
+    &_img
+      margin-right: 35px
+      +flex(0 0 auto)
+      width: 183px
+      height: 183px
+      @media screen and (max-width: 767px)
+        margin-right: 0
+        margin-bottom: 35px
+
+      img
+        display: block
+        +border-radius(95px)
+    
+    &_text
+
+      &-title
+        line-height: 1
+        font-size: 31px
+        font-family: $neuchaFont
+        margin-bottom: 10px
+        @media screen and (max-width: 767px)
+          text-align: center
+
+.reviews-form
+  @media screen and (max-width: 1180px)
+    width: 580px
+    margin: 0 auto
+  @media screen and (max-width: 767px)
+    width: 280px
+  .messages
+    display: none
+  
+  &_title
+    @extend %block-title
+  
+  fieldset
+    margin: 0
+    padding: 0
+    border: none
+
+  & &_top-fields
+    margin-bottom: 30px
+    @media screen and (max-width: 767px)
+      margin-bottom: 0
+
+    fieldset
+      width: 580px
+
+      .form-item
+        width: 280px
+
+    .fieldset-wrapper
+      +display-flex
+      -webkit-justify-content: space-between
+      -ms-flex-pack: justify
+      justify-content: space-between
+      @media screen and (max-width: 1180px)
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        .reviews-form_top-fields-text
+          margin-bottom: 29px
+          @media screen and (max-width: 767px)
+            margin-bottom: 0
+        .fieldset-wrapper
+          -webkit-box-orient: horizontal
+          -moz-box-orient: horizontal
+          -webkit-flex-direction: row
+          -moz-flex-direction: row
+          -ms-flex-direction: row
+          flex-direction: row
+      .fieldset-wrapper
+        @media screen and (max-width: 767px)
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+          .form-item 
+            margin-bottom: 29px
+    
+    .form-item
+      margin: 0
+
+      .form-text
+        @extend %input-text
+
+        &.error
+          border: 1px solid $redColor
+  
+  .webform-component-textarea
+    margin: 0 0 30px
+
+    .form-textarea
+      @extend %input-text
+      height: 121px
+      resize: none
+      padding: 10px 20px
+
+  .webform-component-textarea + div
+    display: inline-block
+    vertical-align: top
+    margin: 0 55px 0 280px
+    @media screen and (max-width: 1180px)
+      margin: 0
+    @media screen and (max-width: 767px)
+      display: block
+      margin-bottom: 29px
+  
+  .form-actions
+    margin: 0
+    display: inline-block
+    vertical-align: top
+    @media screen and (max-width: 1180px)
+      margin-left: 15px
+    @media screen and (max-width: 767px)
+      margin: 0
+
+
+    div
+      display: none
+
+    .form-submit
+      @extend %blue-but
+      width: 280px
+  
+  &_file-item
+    margin: 0
+
+    label
+      @extend %blue-but
+      width: 280px
+      line-height: 41px
+      background: $greenColor
+  
+    &-field,
+    .description
+      display: none
+          
+.open-doc-bottom
+
+  .order-form
+    margin-bottom: 70px
+
+.doc-reviews
+  
+  &_title
+    @extend %block-title
+
+.reviews-slider
+  +display-flex
+  -webkit-justify-content: center
+  -ms-flex-pack: center
+  justify-content: center
+   
+  .reviews-list-item
+    margin-bottom: 0
+
+  .owl-stage-outer
+    text-align: center
+
+    .owl-item
+
+      @media screen and (max-width: 1180px)
+        +display-flex
+        -webkit-justify-content: center
+        -ms-flex-pack: center
+        justify-content: center
+        float: left
+
+    .reviews-list-item
+      width: 550px
+      text-align: left
+
+      @media screen and (max-width: 767px)
+        width: 300px
+        -webkit-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+
+        &_img
+          margin: 0 auto 35px
+
+        &_text
+
+          &-title
+            text-align: center
+
+  .owl-controls .owl-nav div
+    position: absolute
+    cursor: pointer
+    width: 23px
+    height: 39px
+    top: 70px
+    @extend %icon-sprite
+    opacity: 0.7
+    +transition-property(opacity)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+    font-size: 0
+
+    &:hover,
+    &:active
+        opacity: 1
+
+    &.owl-prev
+      left: 0
+      background-position: -49px -149px
+
+    &.owl-next
+      right: 0
+      background-position: -75px -149px
+
+.node-type-about
+  
+  .page-video-content
+    margin-bottom: 0
+
+  .open-programm-top
+
+    h3
+      font-size: 15px
+      color: $blueColor
+      margin-bottom: 5px
+
+.about-doctors-slider
+  +box-sizing(border-box)
+
+  @media screen and (max-width: 1180px) and (min-width: 767px)
+    padding: 0 70px
+
+  @media screen and (min-width: 1180px)
+
+    .owl-stage  
+      width: 1200px !important
+      -moz-transform: none !important
+      -webkit-transform: none !important
+      -o-transform: none !important
+      -ms-transform: none !important
+      transform: none !important
+
+      .owl-item
+        margin-bottom: 90px
+
+  .owl-controls .owl-nav div
+    position: absolute
+    cursor: pointer
+    width: 23px
+    height: 39px
+    top: 90px
+    @extend %icon-sprite
+    opacity: 0.7
+    +transition-property(opacity)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+    font-size: 0
+
+    &:hover,
+    &:active
+        opacity: 1
+
+    &.owl-prev
+      left: 0
+      background-position: 0 -149px
+
+    &.owl-next
+      right: 0
+      background-position: -23px -149px
+
+.about-doctors
+
+  @media screen and (max-width: 1180px)
+      
+      margin-bottom: 80px
+
+.open-about-bottom
+  
+  &_text
+    text-align: center
+    font-size: 38px
+    color: $blueColor
+    font-family: $neuchaFont
+    line-height: 1.5
+
+.open-section-top
+  margin-bottom: 60px  
+  &_services
+    margin-bottom: 50px
+    +display-flex
+    @extend %justify-content-space-around
+    @media screen and (max-width: 1180px)
+      display: none
+    &-med
+      display: none
+      position: relative
+      margin-bottom: 40px
+      &-but
+        cursor: pointer
+        position: relative
+        height: 41px
+        line-height: 41px
+        font-size: 14px
+        color: #fff
+        background: #a3a3a3
+        +border-radius(21px)
+        padding-left: 41px
+        i
+          display: block
+          width: 8px
+          height: 13px
+          position: absolute
+          @extend %icon-sprite
+          top: 50%
+          margin-top: -13px/2
+          right: 34px
+          background-position: -106px -405px
+      &-dropdown
+        position: absolute
+        width: 100%
+        left: 0
+        top: 41px
+        display: none
+        a
+          display: block
+          
+      @media screen and (max-width: 1180px)
+        display: block
+    .column:not(:last-child)
+      width: 25%
+      margin-right: 3%
+
+    a
+      display: block
+      position: relative
+      text-decoration: none
+      color: $grayText
+      padding-left: 17px
+      line-height: 1.5
+
+      &:hover
+        color: $yellowColor
+
+      &:not(:last-child)
+        margin-bottom: 10px
+
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        left: 0
+        top: 8px
+        width: 7px
+        height: 7px
+        background: $yellowColor
+        +border-radius(4px)
+  &_banner
+    position: relative
+    margin-bottom: 60px
+    height: 232px
+    +display-flex
+    -webkit-justify-content: flex-end
+    -ms-flex-pack: end
+    justify-content: flex-end
+    +align-items(center)
+    +box-shadow(rgba(#535353, 0.07) 0 12px 12px)
+    @media screen and (max-width: 767px)
+      width: 300px
+      margin: 0 auto 50px
+      overflow: hidden
+    &-img
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      overflow: hidden
+      @media screen and (max-width: 767px)
+        display: none
+      img
+        display: block
+        width: 1180px
+        height: 232px
+        max-width: 1180px
+    & > &-title
+      position: relative
+      width: 320px
+      color: $yellowColor
+      font-size: 61px
+      font-family: $neuchaFont
+      line-height: 1
+      @media screen and (max-width: 1180px)
+        display: none
+    &-text
+      position: relative
+      height: 232px
+      width: 408px
+      margin-left: 40px
+      background: url(../img/banner-info-bg.png)
+      color: #fff
+      text-align: center
+      +display-flex
+      -webkit-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      -webkit-justify-content: center
+      -ms-flex-pack: center
+      justify-content: center
+      @media screen and (max-width: 767px)
+        width: 300px
+        margin: 0
+        +box-sizing(border-box)
+        padding: 0 10px
+        background-position: right !important
+        .open-section-top_banner-title
+          width: auto !important
+      .open-section-top_banner-title
+        display: none
+        color: #fff !important
+        font-size: 32px
+        font-family: $neuchaFont
+        width: 320px
+        margin: 0 auto 15px
+        @media screen and (max-width: 1180px)
+          display: block
+      p:first-of-type
+        font-size: 75px
+        font-family: $neuchaFont
+        text-transform: uppercase
+        line-height: 1
+        margin-bottom: 10px
+        @media screen and (max-width: 1180px)
+          font-size: 55px
+      a
+        @extend %green-border-but
+        display: inline-block
+        vertical-align: top
+        width: 280px
+        color: #fff
+        border-color: #fff
+        height: 41px
+        line-height: 39px
+        +border-radius(21px)
+        font-size: 12px
+        text-transform: uppercase
+        font-weight: 800
+  &_text
+    text-align: center
+
+.node-type-service
+
+  .open-section-top_banner-title
+    color: $blueColor
+
+  .open-section-top_banner-text
+    background: url(../img/banner-info-bg-2.png)
+
+.price-list
+  
+  &-row:not(:last-child)
+    margin-bottom: 23px
+
+  &-item
+    list-style: none
+    margin: 25px 237px 25px 30px
+    display: none
+    @media screen and (max-width: 1180px)
+      margin-left: 15px
+      margin-right: 15px
+    @media screen and (max-width: 767px)
+      margin-left: 0
+      margin-right: 0  
+    &-cat
+      cursor: pointer
+      height: 37px
+      background: #f1efe9
+      +border-radius(20px)
+      overflow: hidden
+      @extend %display-flex
+      @extend %justify-content-space-between 
+      padding-left: 30px
+      +transition-property(background)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      @media screen and (max-width: 767px)
+        &.active
+          .price-list-item-cat_button
+            &:before
+              opacity: 0
+              visibility: hidden
+            &:after
+              opacity: 1
+              visibility: visible
+      &_title
+        color: #333
+        line-height: 35px
+        +transition-property(color)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+
+      &_button
+        background: $blueColor
+        border-left: 2px solid #fff
+        width: 235px
+        +transition-property(background)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+        position: relative
+        @media screen and (max-width: 767px)
+          width: 35px
+          &:before,
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            left: 50%
+            top: 50%
+          &:before
+            width: 13px
+            height: 13px
+            @extend %icon-sprite
+            margin-left: -16px/2
+            margin-top: -12px/2
+            background-position: -250px 0
+          &:after
+            width: 13px
+            height: 1px
+            background: #fff
+            margin-left: -16px/2
+            opacity: 0
+            visibility: hidden
+        &-text
+          color: #fff
+          line-height: 35px
+          height: 37px
+          text-align: center
+          font-size: 21px
+          font-family: $neuchaFont
+          letter-spacing: 2px
+          +transition-property(opacity, visibility)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+          position: absolute
+          width: 100%
+          left: 0
+          top: 0
+          @media screen and (max-width: 767px)
+            display: none
+
+          &.hidden
+            opacity: 0
+            visibility: hidden
+            
+      &.active
+        background: $blueColor
+
+        .price-list-item-cat_title
+          color: #fff
+
+        .price-list-item-cat_button
+          background: $greenColor
+
+          &-text
+
+            &.visible
+              opacity: 0
+              visibility: hidden
+
+            &.hidden
+              opacity: 1
+              visibility: visible
+              
+    &-content
+
+      &:not(:last-child)
+        margin-bottom: 10px    
+      
+      &-title
+        cursor: pointer
+        @extend %display-flex
+        @extend %justify-content-space-between 
+        @extend %align-items-center 
+        
+        &_text
+          font-size: 18px
+          font-weight: 700
+          color: $blueColor
+          position: relative
+          top: -2px
+
+        &_bord
+          height: 1px
+          background: $blueColor     
+          +flex(1 0 auto)
+          margin: 0 10px   
+
+        &_but
+          width: 25px
+          height: 25px
+          background: $blueColor
+          +border-radius(10px)
+          +box-sizing(border-box)
+          position: relative
+          +flex(0 0 auto)
+
+          &:before,
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            left: 50%
+            top: 50%
+            width: 13px
+
+          &:before
+            height: 13px
+            @extend %icon-sprite
+            margin-left: -14px/2
+            margin-top: -12px/2
+            background-position: -250px 0
+
+          &:after
+            height: 1px
+            background: $yellowColor
+            margin-left: -14px/2
+            opacity: 0
+            visibility: hidden
+        
+        &.active
+
+          .price-list-item-content-title_text
+            color: $yellowColor
+
+          .price-list-item-content-title_bord
+            background: $yellowColor
+
+          .price-list-item-content-title_but
+            background: none
+            border: 1px solid $yellowColor
+
+            &:before
+              opacity: 0
+              visibility: hidden
+            
+            &:after
+              opacity: 1
+              visibility: visible
+
+      &-list
+        line-height: 1.6
+        margin-top: 15px
+        margin-bottom: 25px
+        display: none
+
+        &-item
+          @extend %display-flex
+          @extend %justify-content-space-between 
+          @extend %align-items-flex-end
+
+          &:not(:last-child)
+            margin-bottom: 15px
+          
+        &-title
+
+        &-count
+          white-space: nowrap
+          margin-left: 25px
+          color: $yellowColor
+            
+.faq-list
+  list-style: none
+  &-item
+    &:not(:last-child)
+      margin-bottom: 60px
+    &_top
+      padding-bottom: 35px
+      padding-left: 100px
+      position: relative
+      @media screen and (max-width: 767px)
+        padding-left: 80px
+        line-height: 1.7
+      &-text
+        margin-bottom: 10px
+      &-name
+        color: $blueColor
+        font-weight: 700
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        left: 32px
+        top: 8px
+        width: 1px
+        height: 100%
+        background: $blueColor
+      &-icon
+        display: block
+        font-style: normal
+        position: absolute
+        left: 0
+        top: 8px
+        width: 65px
+        height: 65px
+        text-align: center
+        line-height: 62px
+        color: #fff
+        +border-radius(33px)
+        background: $blueColor
+        font-size: 41px
+        font-weight: 800
+    &_bottom
+      background: $greenColor
+      color: #fff
+      padding: 30px 50px
+      +border-radius(30px)
+      position: relative
+      z-index: 2
+      @media screen and (max-width: 767px)
+        padding: 40px 30px
+      &-answer
+        margin-bottom: 15px
+        @media screen and (max-width: 767px)
+          line-height: 1.7
+      &-doc
+        line-height: 1
+        margin-bottom: 50px
+        font-weight: 700
+        color: $blueColor
+        @media screen and (max-width: 767px)
+          line-height: 1.6
+      &-votes
+        @extend %display-flex 
+        @extend %justify-content-space-between
+        @extend %align-items-center
+        @media screen and (max-width: 1180px)
+          -webkit-box-orient: vertical
+          -moz-box-orient: vertical
+          -webkit-flex-direction: column
+          -moz-flex-direction: column
+          -ms-flex-direction: column
+          flex-direction: column
+          -webkit-box-align: start
+          -ms-flex-align: start
+          -webkit-align-items: flex-start
+          -moz-align-items: flex-start
+          align-items: flex-start
+        &-count
+          font-size: 27px
+          color: #d0c9b4
+          font-family: $neuchaFont
+          @media screen and (max-width: 1180px)
+            margin-bottom: 35px
+          i
+            font-style: normal
+        &-action
+          @extend %display-flex
+          @extend %align-items-center
+          @media screen and (max-width: 767px)
+            -webkit-box-orient: vertical
+            -moz-box-orient: vertical
+            -webkit-flex-direction: column
+            -moz-flex-direction: column
+            -ms-flex-direction: column
+            flex-direction: column
+            -webkit-box-align: start
+            -ms-flex-align: start
+            -webkit-align-items: flex-start
+            -moz-align-items: flex-start
+            align-items: flex-start
+        &-label
+          font-size: 21px
+          font-family: $neuchaFont
+          margin-right: 25px
+          @media screen and (max-width: 767px)
+            margin: 0 0 30px
+        &-buttons
+          .is-useful-link
+            display: inline-block
+            vertical-align: top
+            font-size: 0
+            &.is-useful-yes
+              a
+                background: $blueColor
+                &:after
+                  background-position: -40px -348px
+            &.is-useful-no
+              margin-left: 14px
+              a
+                border: 2px solid #fff
+                &:after
+                  background-position: -119px -348px
+            a
+              display: block
+              position: relative
+              +box-sizing(border-box)
+              width: 65px
+              height: 65px
+              +border-radius(33px)
+              &:after
+                content: ''
+                display: block
+                position: absolute
+                left: 50%
+                top: 50%
+                width: 32px
+                height: 38px
+                margin-left: -32px/2
+                margin-top: -38px/2
+                @extend %icon-sprite
+          label,
+          .chosen-container,
+          .is-useful-maybe
+            display: none
+          .form-item
+            margin: 0
+            > div:not(.is-useful-widget),
+            .count
+              display: none
+              
+.page-faq
+  
+  .faq-top-box
+
+    .page-title
+      color: $greenColor
+
+    &_button
+      background: $greenColor
+
+  .view-filters
+    color: $greenColor
+
+    .views-exposed-widgets .views-exposed-widget .form-type-select label:before
+      +box-shadow($greenColor 0 0 0 1px inset)
+
+    .views-widget-filter-views_hst_filter .views-hst-filter .form-type-select .chosen-container-single .chosen-single
+      color: $greenColor
+
+      div
+        background-position: -13px -137px
+    
+    .views-submit-button .form-submit
+      color: $greenColor
+      border-bottom-color: $greenColor
+
+  .views-hst-filter
+
+    .hidden-select
+      color: $greenColor !important
+      display: none !important
+
+    > input + .hidden-select
+      display: block !important
+  
+.vacancy-top-text 
+  margin-bottom: 55px
+
+.vacancy-list
+
+  &-item:not(:last-child)
+    margin-bottom: 23px
+
+  &-item
+
+    &_title
+      cursor: pointer
+      background: #f1efe9
+      +border-radius(20px)
+      overflow: hidden
+      @extend %display-flex
+      @extend %justify-content-space-between 
+      padding-left: 30px
+      +transition-property(background)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      @media screen and (max-width: 767px)
+        &.active
+          .vacancy-list-item_title_button
+            &:before
+              opacity: 0
+              visibility: hidden
+            &:after
+              opacity: 1
+              visibility: visible
+
+      &_title
+        color: #333
+        line-height: 1.4
+        padding: 6px 0 8px
+        +transition-property(color)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+
+      &_button
+        background: $blueColor
+        border-left: 2px solid #fff
+        width: 235px
+        +transition-property(background)
+        +transition-duration(0.2s)
+        +transition-timing-function(ease)
+        position: relative
+        +flex(0 0 auto)
+        @media screen and (max-width: 767px)
+          width: 35px
+          &:before,
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            left: 50%
+            top: 50%
+          &:before
+            width: 13px
+            height: 13px
+            @extend %icon-sprite
+            margin-left: -16px/2
+            margin-top: -12px/2
+            background-position: -250px 0
+          &:after
+            width: 13px
+            height: 1px
+            background: #fff
+            margin-left: -16px/2
+            opacity: 0
+            visibility: hidden
+
+        &-text
+          color: #fff
+          line-height: 35px
+          height: 37px
+          text-align: center
+          font-size: 21px
+          font-family: $neuchaFont
+          letter-spacing: 2px
+          +transition-property(opacity, visibility)
+          +transition-duration(0.2s)
+          +transition-timing-function(ease)
+          position: absolute
+          width: 100%
+          left: 0
+          top: 0
+          @media screen and (max-width: 767px)
+            display: none
+
+          &.hidden
+            opacity: 0
+            visibility: hidden
+            
+      &.active
+        background: $blueColor
+
+        .vacancy-list-item_title_title
+          color: #fff
+
+        .vacancy-list-item_title_button
+          background: $greenColor
+
+          &-text
+
+            &.visible
+              opacity: 0
+              visibility: hidden
+
+            &.hidden
+              opacity: 1
+              visibility: visible
+    
+    &_text
+      display: none
+      padding: 20px 30px
+
+      h3
+        font-size: 15px
+        color: $blueColor
+
+.gallery-content
+  +column-count(3)
+  +column-width(392px)
+  +column-gap(0)
+  @media screen and (max-width: 1180px)
+    +column-count(2)
+    +column-width(373px)
+  @media screen and (max-width: 767px)
+    +column-count(0)
+    width: auto
+  a
+    display: block
+    position: relative
+    &:hover
+      i
+        opacity: 1
+        visibility: visible
+    i
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba($blueColor, 0.8)
+      opacity: 0
+      visibility: hidden
+      +transition-property(opacity, visibility)
+      +transition-duration(0.2s)
+      +transition-timing-function(ease)
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        @extend %icon-sprite
+        width: 107px
+        height: 107px
+        left: 50%
+        top: 50%
+        margin-left: -107px/2
+        margin-top: -107px/2
+        background-position: -281px 0
+    img
+      display: block
+      @media screen and (max-width: 1180px)
+        width: 100%
+      
+.gallery-view-but
+  margin-top: 30px
+  text-align: center
+  
+  &_button
+    @extend %red-but
+    display: inline-block
+    vertical-align: top
+    border: none
+    width: 232px
+    background: $blueColor
+    font-size: 14px
+    font-weight: 800
+
+.gallery-hidden
+  display: none
+
+.contacts-content
+  @extend %display-flex
+  @extend %justify-content-space-between
+  @media screen and (max-width: 1180px)
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -webkit-flex-direction: column
+    -moz-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    -webkit-box-align: center
+    -ms-flex-align: center
+    -webkit-align-items: center
+    -moz-align-items: center
+    align-items: center
+  &_row
+    width: 570px
+    @extend %display-flex
+    @extend %justify-content-space-between
+    @media screen and (max-width: 1180px)
+      margin-bottom: 60px
+    @media screen and (max-width: 767px)
+      -webkit-box-orient: vertical
+      -moz-box-orient: vertical
+      -webkit-flex-direction: column
+      -moz-flex-direction: column
+      -ms-flex-direction: column
+      flex-direction: column
+      width: 260px
+      margin-bottom: 0
+    &-box
+      +box-sizing(border-box)
+      width: 260px
+      color: #333
+      font-size: 14px
+      line-height: 1.8
+      position: relative
+      padding-left: 40px
+      @media screen and (max-width: 767px)
+        margin-bottom: 60px
+      h2
+        font-weight: 800
+        font-size: 15px
+        line-height: 1.6
+        margin-bottom: 15px
+      h3
+        margin-top: 15px
+        font-size: 15px
+        color: $blueColor
+      p:last-child
+        font-size: 15px
+        line-height: 1.5
+      &.box-1
+        &:before
+          background-position: 0 -329px
+      &.box-2
+        &:before
+          background-position: 0 -361px
+      &.box-3
+        &:before
+          background-position: 0 -393px
+      &.box-4
+        &:before
+          background-position: 0 -425px
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        width: 22px
+        height: 32px
+        @extend %icon-sprite
+        top: 0
+        left: 0
+
+.node-type-contacts
+  .bottom-map
+    &:after
+      display: none
+      
+.open-static-content
+  margin-bottom: 40px
+  h3
+    font-size: 15px
+    color: $blueColor
+    margin-bottom: 10px
+
+.med-dropdown-menu
+  position: fixed
+  width: 240px
+  top: 0
+  bottom: 0
+  left: -240px
+  overflow-x: hidden
+  overflow-y: scroll
+  background: #5495a8
+  z-index: 10
+  +transition-property(all)
+  +transition-duration(0.2s)
+  +transition-timing-function(ease)
+  -webkit-transform: 0.4s linear 0s
+  -moz-transform: 0.4s linear 0s
+  -o-transform: 0.4s linear 0s
+  -ms-transform: 0.4s linear 0s
+  transform: 0.4s linear 0s
+  display: none
+  @media screen and (max-width: 1180px)
+    display: block
+    &.open
+      transform: translate(240px, 0px)
+      -webkit-transform: translate(240px, 0px)
+      -moz-transform: translate(240px, 0px)
+      -o-transform: translate(240px, 0px)
+      -ms-transform: translate(240px, 0px)
+      ~ #wrapper,
+      ~ #footer
+        transform: translate(240px, 0px)
+        -webkit-transform: translate(240px, 0px)
+        -moz-transform: translate(240px, 0px)
+        -o-transform: translate(240px, 0px)
+        -ms-transform: translate(240px, 0px)
+  &_back
+    cursor: pointer
+    height: 46px
+    background: #437786
+    color: #fff
+    font-size: 21px
+    @extend %display-flex
+    @extend %align-items-center
+    padding-left: 10px
+    i
+      display: block
+      @extend %icon-sprite
+      width: 25px
+      height: 25px
+      background-position: -149px -186px
+      margin-right: 10px
+  &_content
+    font-size: 13px
+    .menu
+      li
+        margin: 0
+        padding: 0
+        list-style: none
+        &:not(.last) a
+          border-bottom: 1px solid rgba(#fff, 0.2)
+        a
+          display: block
+          text-decoration: none
+          color: #fff
+          padding: 10px 10px 10px 28px
+          position: relative
+          line-height: 1.6
+          &:active
+            background: #437786
+          &:before
+            content: ''
+            display: block
+            position: absolute
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 0 8px 8px
+            border-color: transparent transparent #ffffff transparent
+            left: 10px
+            top: 16px
+
+          
+
+
+
+
+
+
+
+
+
+
+#footer
+  margin: -253px auto 0
+  min-width: 320px
+  height: 253px
+  background: $greenColor
+  color: #fff
+  position: relative
+  +box-sizing(border-box)
+  padding-top: 40px    
+  @media screen and (max-width: 1180px)
+    height: 121px
+    margin: -121px auto 0
+    text-align: center
+    padding-top: 55px
+    +transition-property(all)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease)
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 5px
+    background: url(../img/header-border.jpg) no-repeat center
+    +background-size(100% 5px)
+
+.footer-content
+  margin-bottom: 55px
+  @media screen and (max-width: 1180px)
+    display: none
+
+  .header-content_tel-num
+    color: #fff
+
+  .header-content_buttons .menu li.first a
+    color: #fff
+
+  .header-content_buttons .menu li.last a
+    @extend %green-border-but
+    color: #fff
+    background: none
+
+.footer-copy
+  line-height: 1
+  font-size: 13px
+  font-weight: 300
+
+.overlay-bg
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  z-index: 100
+  background: rgba(#061f29, 0.8)
+  @extend %display-flex 
+  @extend %align-items-center
+  @extend %justify-content-center
+  +transition-property(opacity, visibility)
+  +transition-duration(0.2s)
+  +transition-timing-function(ease)
+  opacity: 0
+  visibility: hidden
+  &.active
+    opacity: 1
+    visibility: visible
+
+.order-form-popup
+  +box-sizing(border-box)
+  background: #fff
+  width: 1282px
+  padding: 50px 50px 35px
+  +border-radius(30px)
+  position: relative
+  &_title
+    @extend %block-title
+  .messages
+    display: none
+  fieldset
+    padding: 0
+    border: none
+    margin-bottom: 29px
+    .fieldset-wrapper
+      @extend %display-flex
+      @extend %justify-content-space-between
+      .form-item
+        &.form-item-house
+          width: 580px
+        margin: 0
+        width: 280px
+        .form-text
+          @extend %input-text
+          &.error
+            border: 1px solid $redColor
+        .form-checkboxes
+          @extend %display-flex
+          @extend %justify-content-space-between
+          @extend %align-items-center
+          height: 41px
+          .form-type-checkbox
+            width: auto
+            input
+              display: none
+              &:checked + label:after
+                opacity: 1
+            label
+              display: block
+              font-weight: normal
+              font-size: 14px
+              cursor: pointer
+              padding-left: 35px
+              height: 25px
+              line-height: 27px
+              position: relative
+              &:before
+                content: ''
+                display: block
+                position: absolute
+                left: 0
+                top: 0
+                +box-sizing(border-box)
+                height: 25px
+                width: 25px
+                background: #fff
+                +box-shadow(#c7d7dc 0 0 0 1px inset)
+                +border-radius(10px)
+              &:after
+                content: ''
+                display: block
+                position: absolute
+                width: 13px
+                height: 13px
+                background: $yellowColor
+                left: 6px
+                top: 6px
+                +border-radius(7px)
+                opacity: 0
+                +transition-property(opacity)
+                +transition-duration(0.2s)
+                +transition-timing-function(ease)
+  fieldset.date-box
+    height: 41px
+    .fieldset-wrapper         
+      @extend %justify-content-center
+      .order-form-date-field
+        width: 100px
+  .webform-component-textarea
+    margin: 0 0 40px
+    .form-textarea
+      @extend %input-text
+      height: 101px
+      padding: 10px 20px
+      resize: none
+  .form-actions
+    margin: 0
+    text-align: center
+    div
+      display: none
+    .form-submit
+      @extend %blue-but
+      width: 280px
+      background: $redColor
+  &_closed
+    display: block
+    position: absolute
+    cursor: pointer
+    width: 38px
+    height: 38px
+    @extend %icon-sprite
+    background-position: -49px -909px
+    top: -58px
+    right: 50px
+    @media screen and (max-width: 1280px)
+      right: 0
+
+.faq-popup-content
+  .order-form-popup
+    fieldset
+      fieldset
+        margin-bottom: 0
+        .fieldset-wrapper
+          width: 580px
+    .webform-component-textarea .form-textarea
+      height: 230px
+    @media screen and (max-width: 1280px)
+      width: 745px
+      .webform-component--dannye-tekst > .fieldset-wrapper
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        .fieldset-wrapper
+          width: 645px
+      .webform-component--dannye-tekst--dannye-1
+        margin-bottom: 29px
+    @media screen and (max-width: 767px)
+      width: 300px
+      padding: 45px 10px
+      .order-form-popup_title
+        font-size: 18px
+        line-height: 1.3
+        margin-bottom: 25px
+      .fieldset-wrapper .fieldset-wrapper
+        -webkit-box-orient: vertical
+        -moz-box-orient: vertical
+        -webkit-flex-direction: column
+        -moz-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        width: auto !important
+      .form-item
+        margin-bottom: 20px !important
+        .form-item
+          margin: 0 !important
+      .form-checkboxes
+        height: 25px !important
+      fieldset
+        margin: 0 !important
+      .webform-component-textarea .form-textarea
+        height: 170px
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

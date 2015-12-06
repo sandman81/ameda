@@ -1,0 +1,60 @@
+@mixin vendor-prefix($name, $value) 
+  @each $vendor in ('-webkit-', '-moz-', '') 
+    #{$vendor}#{$name}: #{$value}
+//+vendor-prefix('box-sizing', 'border-box')
+
+
+@mixin border-top-left-radius($values) 
+  -webkit-border-top-left-radius: $values
+  -moz-border-radius-topleft: $values
+  border-top-left-radius: $values
+//+border-top-left-radius()
+
+@mixin border-bottom-right-radius($values) 
+  -webkit-border-bottom-right-radius: $values
+  -moz-border-radius-bottomright: $values
+  border-bottom-right-radius: $values
+//+border-bottom-right-radius()
+
+@mixin flexbox() 
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+//+flexbox()
+
+@mixin flex($values) 
+  -webkit-box-flex: $values
+  -moz-box-flex:  $values
+  -webkit-flex:  $values
+  -ms-flex:  $values
+  flex:  $values
+//+flex(1 200px)
+
+@mixin align-items($values) 
+  -webkit-box-align: $values;
+  -webkit-align-items: $values;
+  -ms-flex-align: $values;
+  align-items: $values;
+//+align-items(center)
+
+@mixin order($val) 
+  -webkit-box-ordinal-group: $val
+  -moz-box-ordinal-group: $val   
+  -ms-flex-order: $val
+  -webkit-order: $val  
+  order: $val
+//+order(2)
+
+
+@mixin bg-gradient-t2b($start-colour, $end-colour) 
+  background: $start-colour
+  background: -webkit-gradient(linear, left top, left bottom, from($start-colour), to($end-colour))
+  background: -webkit-linear-gradient(top, $start-colour, $end-colour)
+  background:    -moz-linear-gradient(top, $start-colour, $end-colour)
+  background:     -ms-linear-gradient(top, $start-colour, $end-colour)
+  background:      -o-linear-gradient(top, $start-colour, $end-colour)
+  background:         linear-gradient(top, $start-colour, $end-colour)
+  filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}')
+//@include bg-gradient-t2b(#FFC107, #E91E63)   
